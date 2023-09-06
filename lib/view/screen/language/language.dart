@@ -4,7 +4,7 @@ import 'package:ecommerce/core/constant/routes.dart';
 import 'package:ecommerce/core/functions/alertexitapp.dart';
 import 'package:ecommerce/core/functions/over_layout_style.dart';
 import 'package:ecommerce/core/localization/changelocal.dart';
-import 'package:ecommerce/view/widget/language/custombuttonlang.dart';
+import 'package:ecommerce/view/widget/language/custom_button_lang.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

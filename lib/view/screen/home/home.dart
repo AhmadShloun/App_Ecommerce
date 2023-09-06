@@ -1,6 +1,7 @@
 import 'package:ecommerce/controller/home_controller.dart';
 import 'package:ecommerce/core/class/handlingdataview.dart';
 import 'package:ecommerce/core/constant/color.dart';
+import 'package:ecommerce/mymediaquery.dart';
 import 'package:ecommerce/view/widget/home/custom_title_body_home.dart';
 import 'package:ecommerce/view/widget/home/custom_appbar_home.dart';
 import 'package:ecommerce/view/widget/home/custom_title_appbar_home.dart';
@@ -15,6 +16,9 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MyMediaQuery.screenWidth(context);
+    double screenHeight = MyMediaQuery.screenHeight(context);
+
     Get.put(HomeControllerImp());
     return GetBuilder<HomeControllerImp>(
       builder: (controller) => HandlingDataView(
