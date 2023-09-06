@@ -19,6 +19,7 @@ class HomePage extends StatelessWidget {
     double screenWidth = MyMediaQuery.screenWidth(context);
     double screenHeight = MyMediaQuery.screenHeight(context);
 
+    
     Get.put(HomeControllerImp());
     return GetBuilder<HomeControllerImp>(
       builder: (controller) => HandlingDataView(
