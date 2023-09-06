@@ -2,7 +2,7 @@ import 'package:ecommerce/controller/homescreen_controller.dart';
 import 'package:ecommerce/core/class/StatusOverLayout.dart';
 import 'package:ecommerce/core/constant/color.dart';
 import 'package:ecommerce/core/functions/over_layout_style.dart';
-import 'package:ecommerce/view/widget/home/custombottomappbarhome.dart';
+import 'package:ecommerce/view/widget/home/custom_bottom_appbar_home.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -17,13 +17,9 @@ class HomeScreen extends StatelessWidget {
       builder: (controller) {
         return Scaffold(
           extendBodyBehindAppBar: true,
-          // backgroundColor: AppColor.primaryColor,
-          // resizeToAvoidBottomPadding: false,
-          // resizeToAvoidBottomInset: false,
-
           appBar: AppBar(
             elevation: 0,
-            title: Center(child: const Text("Title")),
+            title: const Center(child: Text("Title")),
           ),
           floatingActionButton: FloatingActionButton(
             backgroundColor: AppColor.primaryColor,

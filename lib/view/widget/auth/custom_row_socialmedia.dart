@@ -1,6 +1,6 @@
 import 'package:ecommerce/core/constant/color.dart';
 import 'package:ecommerce/core/constant/imageasset.dart';
-import 'package:ecommerce/view/widget/auth/customsocial_icon.dart';
+import 'package:ecommerce/view/widget/auth/custom_social_icon.dart';
 import 'package:flutter/material.dart';
 
 class CustomRowSocialMedia extends StatelessWidget {
