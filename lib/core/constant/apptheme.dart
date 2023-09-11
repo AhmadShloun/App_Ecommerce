@@ -49,6 +49,12 @@ ThemeData themeEnglish = ThemeData(
       fontSize: 16,
       height: 2,
     ),
+    titleMedium: TextStyle(
+      color: AppColor.black,
+      fontSize: 16,
+      height: 2,
+      fontWeight: FontWeight.bold,
+    ),
   ),
 
   // primarySwatch: Colors.blue,

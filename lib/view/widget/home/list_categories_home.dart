@@ -1,5 +1,7 @@
-import 'package:ecommerce/controller/home_controller.dart';
+import 'package:ecommerce/controller/home_controller/home_controller.dart';
 import 'package:ecommerce/core/constant/color.dart';
+import 'package:ecommerce/core/functions/translate_db.dart';
+import 'package:ecommerce/data/model/ItemsModel.dart';
 import 'package:ecommerce/data/model/categoriesmodel.dart';
 import 'package:ecommerce/linkapi.dart';
 import 'package:flutter/material.dart';
@@ -14,6 +16,7 @@ class ListCategoriesHome extends GetView<HomeControllerImp> {
     return SizedBox(
       height: 110,
       child: ListView.separated(
+        physics: const BouncingScrollPhysics(),
         separatorBuilder: (context, index) => const SizedBox(width: 10),
         scrollDirection: Axis.horizontal,
         itemCount: controller.categories.length,
@@ -21,6 +24,7 @@ class ListCategoriesHome extends GetView<HomeControllerImp> {
           return Categories(
             categoriesModel:
                 CategoriesModel.fromJson(controller.categories[index]),
+            index: index,
           );
         },
       ),
@@ -28,31 +32,38 @@ class ListCategoriesHome extends GetView<HomeControllerImp> {
   }
 }
 
-class Categories extends StatelessWidget {
-  const Categories({Key? key, required this.categoriesModel}) : super(key: key);
+class Categories extends GetView<HomeControllerImp> {
+  const Categories({Key? key, required this.categoriesModel,required this.index}) : super(key: key);
   final CategoriesModel categoriesModel;
+  final int index;
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          decoration: BoxDecoration(
-            color: AppColor.primaryColor,
-            borderRadius: BorderRadius.circular(20),
+    return InkWell(
+      onTap: (){
+        controller.goToItems(controller.categories,index,categoriesModel.categoriesId!);
+      },
+      child: Column(
+        children: [
+          Container(
+            decoration: BoxDecoration(
+              color: AppColor.primaryColor,
+              borderRadius: BorderRadius.circular(20),
+            ),
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            height: 80,
+            width: 80,
+            child: SvgPicture.network(
+              colorFilter: const ColorFilter.mode(AppColor.white, BlendMode.srcIn),
+                // color: AppColor.white.withAlpha(225),
+                "${AppLink.imagesCategories}/${categoriesModel.categoriesImage}"),
           ),
-          padding: const EdgeInsets.symmetric(horizontal: 10),
-          height: 80,
-          width: 80,
-          child: SvgPicture.network(
-              color: AppColor.white.withAlpha(225),
-              "${AppLink.imagesCategories}/${categoriesModel.categoriesImage}"),
-        ),
-        Text(
-          "${categoriesModel.categoriesName}",
-          style: const TextStyle(fontSize: 13, color: AppColor.black),
-        ),
-      ],
+          Text(
+            "${translateDB(categoriesModel.categoriesNameAr, categoriesModel.categoriesName)}",
+            style: const TextStyle(fontSize: 13, color: AppColor.black),
+          ),
+        ],
+      ),
     );
   }
 }

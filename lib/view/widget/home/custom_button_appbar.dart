@@ -25,11 +25,11 @@ class CustomButtonAppBar extends StatelessWidget {
         children: [
           Icon(
             iconData,
-            color: activate == true ?AppColor.primaryColor:AppColor.black,
+            color: activate == true ?AppColor.primaryColor:AppColor.grey2,
           ),
           Text(
             textButton,
-            style: TextStyle(color:activate == true ?AppColor.primaryColor:AppColor.black),
+            style: TextStyle(color:activate == true ?AppColor.primaryColor:AppColor.grey2),
           ),
         ],
       ),

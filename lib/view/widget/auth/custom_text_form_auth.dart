@@ -28,13 +28,15 @@ class CustomTextFormAuth extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.only(bottom: 20),
       child: TextFormField(
+        // style:Theme.of(context).textTheme.bodyMedium ,
         keyboardType: keyboardType(type: typeKeyboard),
         validator: valid,
         controller: mycontroller,
         obscureText: obscureText == null || obscureText == false ? false : true,
         decoration: InputDecoration(
           hintText: hinttext,
-          hintStyle: const TextStyle(fontSize: 14),
+          // hintStyle: const TextStyle(fontSize: 14),
+          hintStyle: Theme.of(context).textTheme.labelMedium,
           floatingLabelBehavior: FloatingLabelBehavior.always,
           contentPadding:
               const EdgeInsets.symmetric(vertical: 5, horizontal: 30),

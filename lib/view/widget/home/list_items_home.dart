@@ -1,5 +1,6 @@
-import 'package:ecommerce/controller/home_controller.dart';
+import 'package:ecommerce/controller/home_controller/home_controller.dart';
 import 'package:ecommerce/core/constant/color.dart';
+import 'package:ecommerce/core/functions/translate_db.dart';
 import 'package:ecommerce/data/model/ItemsModel.dart';
 import 'package:ecommerce/linkapi.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +14,8 @@ class ListItemsHome extends GetView<HomeControllerImp> {
     return SizedBox(
       height: 140,
       child: ListView.builder(
+        physics: const BouncingScrollPhysics(),
+
         itemCount: controller.items.length,
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, i) {
@@ -55,7 +58,8 @@ class ItemsHome extends StatelessWidget {
         Positioned(
           left: 10,
           child: Text(
-            "${itemsModel.itemsName}",
+            translateDB(itemsModel.itemsNameAr, itemsModel.itemsName),
+            // "${itemsModel.itemsName}",
             style: const TextStyle(
                 color: AppColor.white,
                 fontWeight: FontWeight.bold,

@@ -1,9 +1,8 @@
-import 'package:ecommerce/controller/home_controller.dart';
+import 'package:ecommerce/controller/home_controller/home_controller.dart';
 import 'package:ecommerce/core/class/handlingdataview.dart';
 import 'package:ecommerce/core/constant/color.dart';
-import 'package:ecommerce/mymediaquery.dart';
 import 'package:ecommerce/view/widget/home/custom_title_body_home.dart';
-import 'package:ecommerce/view/widget/home/custom_appbar_home.dart';
+import 'package:ecommerce/view/widget/custom_appbar_home.dart';
 import 'package:ecommerce/view/widget/home/custom_title_appbar_home.dart';
 import 'package:ecommerce/view/widget/home/list_categories_home.dart';
 import 'package:ecommerce/view/widget/home/list_items_home.dart';
@@ -16,10 +15,6 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double screenWidth = MyMediaQuery.screenWidth(context);
-    double screenHeight = MyMediaQuery.screenHeight(context);
-
-    
     Get.put(HomeControllerImp());
     return GetBuilder<HomeControllerImp>(
       builder: (controller) => HandlingDataView(
@@ -44,19 +39,22 @@ class HomePage extends StatelessWidget {
               ),
               Expanded(
                 child: MainBody(
-                  child: ListView(
-                    padding:
-                        const EdgeInsetsDirectional.symmetric(horizontal: 5),
-                    children: [
-                      CustomTitleBodyHome(
-                        title: "54".tr,
-                      ),
-                      const ListCategoriesHome(),
-                      CustomTitleBodyHome(
-                        title: "55".tr,
-                      ),
-                      const ListItemsHome(),
-                    ],
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(40),
+                    child: ListView(
+                      physics: const BouncingScrollPhysics(),
+                      padding:
+                          const EdgeInsetsDirectional.symmetric(horizontal: 5),
+                      children: [
+                        CustomTitleBodyHome(title: "54".tr),
+                        const ListCategoriesHome(),
+                        CustomTitleBodyHome(title: "55".tr),
+                        const ListItemsHome(),
+                        const ListItemsHome(),
+                        const ListItemsHome(),
+                        const ListItemsHome(),
+                      ],
+                    ),
                   ),
                 ),
               )

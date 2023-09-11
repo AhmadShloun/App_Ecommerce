@@ -1,7 +1,9 @@
 class AppLink {
   static const String server = "https://ahmadfm.000webhostapp.com/ecommerce";
 
-  static const String imagesStatic = "https://ahmadfm.000webhostapp.com/ecommerce/upload";
+  static const String imagesStatic =
+      "https://ahmadfm.000webhostapp.com/ecommerce/upload";
+
   // ===========================images====================
 
   static const String imagesCategories = "$imagesStatic/categories";
@@ -16,10 +18,14 @@ class AppLink {
 
   // ===========================Forget password====================
   static const String checkEmail = "$server/forgetpassword/checkemail.php";
-  static const String resetPassword = "$server/forgetpassword/resetpassword.php";
-  static const String verifycodeForgerPassword = "$server/forgetpassword/verifycode.php";
+  static const String resetPassword =
+      "$server/forgetpassword/resetpassword.php";
+  static const String verifycodeForgerPassword =
+      "$server/forgetpassword/verifycode.php";
 
-// ===========================Home ====================
+  // ===========================Home ====================
   static const String homepage = "$server/home.php";
 
+  // ===========================Items ====================
+  static const String items = "$server/items/items.php";
 }

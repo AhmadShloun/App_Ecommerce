@@ -37,7 +37,6 @@ class MyApp extends StatelessWidget {
       locale: controller.language,
       theme: controller.appTheme,
       initialBinding: InitialBinding(),
-      // home: const SuccessSignUp(),
       getPages: routes,
     );
   }

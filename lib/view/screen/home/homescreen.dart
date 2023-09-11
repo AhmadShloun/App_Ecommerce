@@ -1,4 +1,4 @@
-import 'package:ecommerce/controller/homescreen_controller.dart';
+import 'package:ecommerce/controller/home_controller/homescreen_controller.dart';
 import 'package:ecommerce/core/class/StatusOverLayout.dart';
 import 'package:ecommerce/core/constant/color.dart';
 import 'package:ecommerce/core/functions/over_layout_style.dart';
@@ -20,6 +20,7 @@ class HomeScreen extends StatelessWidget {
           appBar: AppBar(
             elevation: 0,
             title: const Center(child: Text("Title")),
+            backgroundColor: AppColor.primaryColor,
           ),
           floatingActionButton: FloatingActionButton(
             backgroundColor: AppColor.primaryColor,
