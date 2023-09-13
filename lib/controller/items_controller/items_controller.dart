@@ -32,15 +32,23 @@ class ItemsControllerImp extends ItemsController {
   }
 
 
+  // @override
+  // changeSelectedCat(val,categoryId) {
+  //   selectedCat = val;
+  //   catId = categoryId;
+  //   getItems(catId);
+  //
+  //   update();
+  // }
   @override
-  changeSelectedCat(val,categoryId) {
-    selectedCat = val;
-    catId = categoryId;
-    getItems(catId);
-
-    update();
+  changeSelectedCat(val, categoryId) {
+    if (selectedCat != val) {
+      selectedCat = val;
+      catId = categoryId;
+      getItems(catId);
+      update();
+    }
   }
-
   @override
   getItems(categoryId) async {
     data.clear();

@@ -15,12 +15,12 @@ class ListItemsHome extends GetView<HomeControllerImp> {
       height: 140,
       child: ListView.builder(
         physics: const BouncingScrollPhysics(),
-
         itemCount: controller.items.length,
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, i) {
           return ItemsHome(
             itemsModel: ItemsModel.fromJson(controller.items[i]),
+            lang: controller.lang!,
           );
         },
       ),
@@ -30,8 +30,10 @@ class ListItemsHome extends GetView<HomeControllerImp> {
 
 class ItemsHome extends StatelessWidget {
   final ItemsModel itemsModel;
+  final String lang;
 
-  const ItemsHome({Key? key, required this.itemsModel}) : super(key: key);
+  const ItemsHome({Key? key, required this.itemsModel, required this.lang})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +58,8 @@ class ItemsHome extends StatelessWidget {
           ),
         ),
         Positioned(
-          left: 10,
+          left: lang == 'en' ? 10 : null,
+          right: lang == 'ar' ? 10 : null,
           child: Text(
             translateDB(itemsModel.itemsNameAr, itemsModel.itemsName),
             // "${itemsModel.itemsName}",
