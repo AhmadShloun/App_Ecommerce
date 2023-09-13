@@ -9,16 +9,17 @@ import 'package:ecommerce/view/screen/auth/success_signup.dart';
 import 'package:ecommerce/view/screen/auth/forgetpassword/verfiycodeforgetpassword.dart';
 import 'package:ecommerce/view/screen/auth/verfiycodesignup.dart';
 import 'package:ecommerce/view/screen/home/homescreen.dart';
-import 'package:ecommerce/view/screen/home/items.dart';
+import 'package:ecommerce/view/screen/items/items.dart';
 import 'package:ecommerce/view/screen/language/language.dart';
 import 'package:ecommerce/view/screen/onboarding/onboarding.dart';
+import 'package:ecommerce/view/screen/product/product_details.dart';
 import 'package:ecommerce/view/screen/welcome_back.dart';
 import 'package:get/get.dart';
 
 List<GetPage<dynamic>>? routes = [
   // Language
   GetPage(name: AppRoute.language, page: () => const Language(), middlewares: [MyMiddleware()]),
-  // GetPage(name:AppRoute.language , page: ()=> const TestView()),
+  // GetPage(name:AppRoute.language , page: ()=> const ProductDetails()),
 
   // OnBoarding
   GetPage(name: AppRoute.onBoarding, page: () => const OnBoarding()),
@@ -37,4 +38,5 @@ List<GetPage<dynamic>>? routes = [
   //  Home
   GetPage(name: AppRoute.homepage, page: () => const HomeScreen()),
   GetPage(name: AppRoute.items, page: () => const Items()),
+  GetPage(name: AppRoute.productDetails, page: () => const ProductDetails()),
 ];

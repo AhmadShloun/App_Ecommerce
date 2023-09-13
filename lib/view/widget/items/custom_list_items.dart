@@ -1,11 +1,13 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:ecommerce/controller/items_controller/items_controller.dart';
 import 'package:ecommerce/core/constant/color.dart';
 import 'package:ecommerce/core/functions/translate_db.dart';
 import 'package:ecommerce/data/model/ItemsModel.dart';
 import 'package:ecommerce/linkapi.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class CustomListItems extends StatelessWidget {
+class CustomListItems extends GetView<ItemsControllerImp> {
   final ItemsModel itemsModel;
 
   const CustomListItems({super.key, required this.itemsModel});
@@ -13,7 +15,9 @@ class CustomListItems extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        controller.gotToPageProductDetails(itemsModel);
+      },
       child: Card(
         child: Padding(
           padding: const EdgeInsets.all(10),
@@ -21,13 +25,17 @@ class CustomListItems extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              CachedNetworkImage(
+              Hero(
+                tag: "${itemsModel.itemsId}",
+                child: CachedNetworkImage(
                   imageUrl: "${AppLink.imagesItems}/${itemsModel.itemsImage!}",
-                height: 100,
-                fit: BoxFit.fill,
-
+                  height: 100,
+                  fit: BoxFit.fill,
+                ),
               ),
-              const SizedBox(height: 10,),
+              const SizedBox(
+                height: 10,
+              ),
               Text(
                 translateDB(itemsModel.itemsNameAr!, itemsModel.itemsName!),
                 style: Theme.of(context).textTheme.titleMedium,
@@ -50,7 +58,8 @@ class CustomListItems extends StatelessWidget {
                       children: [
                         ...List.generate(
                           5,
-                          (index) => const Icon(Icons.star,size: 15,color: AppColor.amber),
+                          (index) => const Icon(Icons.star,
+                              size: 15, color: AppColor.amber),
                         ),
                       ],
                     ),

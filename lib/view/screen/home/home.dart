@@ -39,22 +39,19 @@ class HomePage extends StatelessWidget {
               ),
               Expanded(
                 child: MainBody(
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(40),
-                    child: ListView(
-                      physics: const BouncingScrollPhysics(),
-                      padding:
-                          const EdgeInsetsDirectional.symmetric(horizontal: 5),
-                      children: [
-                        CustomTitleBodyHome(title: "54".tr),
-                        const ListCategoriesHome(),
-                        CustomTitleBodyHome(title: "55".tr),
-                        const ListItemsHome(),
-                        const ListItemsHome(),
-                        const ListItemsHome(),
-                        const ListItemsHome(),
-                      ],
-                    ),
+                  child: ListView(
+                    physics: const BouncingScrollPhysics(),
+                    padding:
+                        const EdgeInsetsDirectional.symmetric(horizontal: 5),
+                    children: [
+                      CustomTitleBodyHome(title: "54".tr),
+                      const ListCategoriesHome(),
+                      CustomTitleBodyHome(title: "55".tr),
+                      const ListItemsHome(),
+                      const ListItemsHome(),
+                      const ListItemsHome(),
+                      const ListItemsHome(),
+                    ],
                   ),
                 ),
               )

@@ -37,38 +37,35 @@ class Items extends StatelessWidget {
             ),
             Expanded(
               child: MainBody(
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(40),
-                  child: ListView(
-                    physics: const BouncingScrollPhysics(),
-                    padding:
-                        const EdgeInsetsDirectional.symmetric(horizontal: 5),
-                    children: [
-                      const SizedBox(
-                        height: 35,
-                      ),
-                      const ListCategoriesItems(),
-                      GetBuilder<ItemsControllerImp>(
-                        builder: (controller) => HandlingDataView(
-                          statusRequest: controller.statusRequest,
-                          widget: GridView.builder(
-                            shrinkWrap: true,
-                            physics: const NeverScrollableScrollPhysics(),
-                            itemCount: controller.data.length,
-                            gridDelegate:
-                                const SliverGridDelegateWithFixedCrossAxisCount(
-                                    crossAxisCount: 2, childAspectRatio: 0.73),
-                            itemBuilder: (context, index) {
-                              return CustomListItems(
-                                itemsModel:
-                                    ItemsModel.fromJson(controller.data[index]),
-                              );
-                            },
-                          ),
+                child: ListView(
+                  physics: const BouncingScrollPhysics(),
+                  padding:
+                      const EdgeInsetsDirectional.symmetric(horizontal: 5),
+                  children: [
+                    const SizedBox(
+                      height: 35,
+                    ),
+                    const ListCategoriesItems(),
+                    GetBuilder<ItemsControllerImp>(
+                      builder: (controller) => HandlingDataView(
+                        statusRequest: controller.statusRequest,
+                        widget: GridView.builder(
+                          shrinkWrap: true,
+                          physics: const NeverScrollableScrollPhysics(),
+                          itemCount: controller.data.length,
+                          gridDelegate:
+                              const SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount: 2, childAspectRatio: 0.73),
+                          itemBuilder: (context, index) {
+                            return CustomListItems(
+                              itemsModel:
+                                  ItemsModel.fromJson(controller.data[index]),
+                            );
+                          },
                         ),
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
             )

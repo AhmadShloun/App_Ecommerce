@@ -1,5 +1,6 @@
 import 'package:ecommerce/core/constant/color.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 
 class MainBody extends StatelessWidget {
@@ -14,7 +15,9 @@ class MainBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
+      height: Get.height/2,
       padding: padding,
+      clipBehavior: Clip.antiAlias,
       decoration: const BoxDecoration(
         color: AppColor.white,
         borderRadius: BorderRadius.only(
