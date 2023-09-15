@@ -1,3 +1,4 @@
+import 'package:ecommerce/controller/favourite_controller/favourite_controller.dart';
 import 'package:ecommerce/controller/items_controller/items_controller.dart';
 import 'package:ecommerce/core/class/handlingdataview.dart';
 import 'package:ecommerce/core/constant/color.dart';
@@ -16,6 +17,7 @@ class Items extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.put(ItemsControllerImp());
+    FavouriteControllerImp controllerFav = Get.put(FavouriteControllerImp());
     return Scaffold(
       body: Container(
         color: AppColor.primaryColor,
@@ -30,17 +32,17 @@ class Items extends StatelessWidget {
               onPressedIcon: () {
                 print("serch");
               },
+              onPressedIconFavorite: () {
+                print("favorite");
+              },
               onChangedSearch: (value) {},
             ),
-            const SizedBox(
-              height: 15,
-            ),
+            const SizedBox(height: 15),
             Expanded(
               child: MainBody(
                 child: ListView(
                   physics: const BouncingScrollPhysics(),
-                  padding:
-                      const EdgeInsetsDirectional.symmetric(horizontal: 5),
+                  padding: const EdgeInsetsDirectional.symmetric(horizontal: 5),
                   children: [
                     const SizedBox(
                       height: 35,
@@ -57,6 +59,9 @@ class Items extends StatelessWidget {
                               const SliverGridDelegateWithFixedCrossAxisCount(
                                   crossAxisCount: 2, childAspectRatio: 0.73),
                           itemBuilder: (context, index) {
+                            controllerFav.isFavourite[controller.data[index]
+                                    ['items_id']] =
+                                controller.data[index]['favourite'];
                             return CustomListItems(
                               itemsModel:
                                   ItemsModel.fromJson(controller.data[index]),

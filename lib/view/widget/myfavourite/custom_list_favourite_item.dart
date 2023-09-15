@@ -1,23 +1,24 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ecommerce/controller/favourite_controller/favourite_controller.dart';
+import 'package:ecommerce/controller/favourite_controller/myfavourite_controller.dart';
 import 'package:ecommerce/controller/items_controller/items_controller.dart';
 import 'package:ecommerce/core/constant/color.dart';
 import 'package:ecommerce/core/functions/translate_db.dart';
-import 'package:ecommerce/data/model/ItemsModel.dart';
+import 'package:ecommerce/data/model/myfavouritemodel.dart';
 import 'package:ecommerce/linkapi.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class CustomListItems extends GetView<ItemsControllerImp> {
-  final ItemsModel itemsModel;
+class CustomListFavouriteItems extends GetView<MyFavouriteControllerImp> {
+  final MyFavouriteModel favouriteModel;
 
-  const CustomListItems({super.key, required this.itemsModel});
+  const CustomListFavouriteItems({super.key, required this.favouriteModel});
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        controller.gotToPageProductDetails(itemsModel);
+        // controller.gotToPageProductDetails(itemsModel);
       },
       child: Card(
         child: Padding(
@@ -27,9 +28,10 @@ class CustomListItems extends GetView<ItemsControllerImp> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Hero(
-                tag: "${itemsModel.itemsId}",
+                tag: "${favouriteModel.itemsId}",
                 child: CachedNetworkImage(
-                  imageUrl: "${AppLink.imagesItems}/${itemsModel.itemsImage!}",
+                  imageUrl:
+                  "${AppLink.imagesItems}/${favouriteModel.itemsImage!}",
                   height: 100,
                   fit: BoxFit.fill,
                 ),
@@ -38,8 +40,12 @@ class CustomListItems extends GetView<ItemsControllerImp> {
                 height: 10,
               ),
               Text(
-                translateDB(itemsModel.itemsNameAr!, itemsModel.itemsName!),
-                style: Theme.of(context).textTheme.titleMedium,
+                translateDB(
+                    favouriteModel.itemsNameAr!, favouriteModel.itemsName!),
+                style: Theme
+                    .of(context)
+                    .textTheme
+                    .titleMedium,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -47,7 +53,8 @@ class CustomListItems extends GetView<ItemsControllerImp> {
                   Text(
                     "Rating 3.5",
                     textAlign: TextAlign.center,
-                    style: Theme.of(context)
+                    style: Theme
+                        .of(context)
                         .textTheme
                         .bodySmall!
                         .copyWith(textBaseline: TextBaseline.alphabetic),
@@ -59,7 +66,8 @@ class CustomListItems extends GetView<ItemsControllerImp> {
                       children: [
                         ...List.generate(
                           5,
-                          (index) => const Icon(Icons.star,
+                              (index) =>
+                          const Icon(Icons.star,
                               size: 15, color: AppColor.amber),
                         ),
                       ],
@@ -71,32 +79,21 @@ class CustomListItems extends GetView<ItemsControllerImp> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    "${itemsModel.itemsPrice!} \$",
-                    style: Theme.of(context)
+                    "${favouriteModel.itemsPrice!} \$",
+                    style: Theme
+                        .of(context)
                         .textTheme
                         .titleMedium!
                         .copyWith(color: AppColor.primaryColor),
                   ),
-                  GetBuilder<FavouriteControllerImp>(builder: (controller) {
-                    return IconButton(
+                     IconButton(
                       onPressed: () {
-                        if (controller.isFavourite[itemsModel.itemsId] == "1") {
-                          controller.setFavourite(itemsModel.itemsId, "0");
-                          controller.removeFavourite(itemsModel.itemsId!);
-                        } else {
-                          controller.setFavourite(itemsModel.itemsId, "1");
-                          controller.addFavourite(itemsModel.itemsId!);
-
-                        }
+                        controller.deleteFromFavourite(favouriteModel.favouriteId!);
                       },
-                      icon: Icon(
-                        controller.isFavourite[itemsModel.itemsId] == "1"
-                            ? Icons.favorite
-                            : Icons.favorite_border_outlined,
-                        color: AppColor.primaryColor,
-                      ),
-                    );
-                  }),
+                      icon: const Icon(Icons.delete_outline),
+                      color: AppColor.primaryColor,
+                    ),
+
                 ],
               ),
             ],

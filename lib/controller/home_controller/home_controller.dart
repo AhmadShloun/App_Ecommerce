@@ -10,7 +10,9 @@ abstract class HomeController extends GetxController {
 
   getData();
 
-  goToItems(List categories, int selectedCat ,String categoryId);
+  goToItems(List categories, int selectedCat, String categoryId, String id);
+
+  goToMyFavourite();
 }
 
 class HomeControllerImp extends HomeController {
@@ -19,7 +21,7 @@ class HomeControllerImp extends HomeController {
   late StatusRequest statusRequest;
   List categories = [];
   List items = [];
-  String? lang ;
+  String? lang;
 
   String? id;
   String? username;
@@ -55,11 +57,16 @@ class HomeControllerImp extends HomeController {
   }
 
   @override
-  goToItems(categories, selectedCat,categoryId) {
+  goToItems(categories, selectedCat, categoryId, id) {
     Get.toNamed(AppRoute.items, arguments: {
       "categories": categories,
       "selectedId": selectedCat,
       "catId": categoryId,
     });
+  }
+
+  @override
+  goToMyFavourite() {
+    Get.toNamed(AppRoute.myfavourite);
   }
 }

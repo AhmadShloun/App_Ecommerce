@@ -1,4 +1,4 @@
-import 'package:ecommerce/controller/forgetpassword/verfiycode_controller.dart';
+import 'package:ecommerce/controller/auth/forgetpassword/verfiycode_controller.dart';
 import 'package:ecommerce/core/class/handlingdataview.dart';
 import 'package:ecommerce/core/constant/color.dart';
 import 'package:ecommerce/view/widget/auth/custom_otp_text_field.dart';

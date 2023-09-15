@@ -32,6 +32,9 @@ class HomePage extends StatelessWidget {
                 onPressedIcon: () {
                   print("serch");
                 },
+                onPressedIconFavorite:() {
+                  controller.goToMyFavourite();
+                } ,
                 onChangedSearch: (value) {},
               ),
               const SizedBox(
@@ -47,9 +50,6 @@ class HomePage extends StatelessWidget {
                       CustomTitleBodyHome(title: "54".tr),
                       const ListCategoriesHome(),
                       CustomTitleBodyHome(title: "55".tr),
-                      const ListItemsHome(),
-                      const ListItemsHome(),
-                      const ListItemsHome(),
                       const ListItemsHome(),
                     ],
                   ),

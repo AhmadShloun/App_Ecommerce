@@ -6,9 +6,9 @@ class ItemsData {
 
   ItemsData(this.crud);
 
-  getData(String id) async {
+  getData(String catid , String userid) async {
     var response =
-        await crud.postData(linkUrl: AppLink.items, data: {"id": id.toString()});
+        await crud.postData(linkUrl: AppLink.items, data: {"catid" : catid.toString() , "usersid": userid.toString() });
     return response.fold((l) => l, (r) => r);
   }
 }
