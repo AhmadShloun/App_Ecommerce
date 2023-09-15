@@ -41,11 +41,7 @@ class ProductDetails extends StatelessWidget {
                   children: [
                     CustomTitleName(name: "${controller.itemsModel.itemsName}"),
                     const SizedBox(height: 20),
-                    PriceAndCountItems(
-                        onAdd: () {},
-                        onRemove: () {},
-                        count: "999",
-                        price: "1000.0"),
+                    PriceAndCountItems(onAdd: () {}, onRemove: () {}, count: "999", price: "1000.0"),
                     const SizedBox(height: 40),
                     CustomSubTitle(title: "57".tr),
                     const SizedBox(height: 3),

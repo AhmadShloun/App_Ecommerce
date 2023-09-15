@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:ecommerce/controller/favourite_controller/favourite_controller.dart';
 import 'package:ecommerce/controller/items_controller/items_controller.dart';
 import 'package:ecommerce/core/constant/color.dart';
 import 'package:ecommerce/core/functions/translate_db.dart';
@@ -76,10 +77,26 @@ class CustomListItems extends GetView<ItemsControllerImp> {
                         .titleMedium!
                         .copyWith(color: AppColor.primaryColor),
                   ),
-                  IconButton(
-                    onPressed: () {},
-                    icon: const Icon(Icons.favorite_border_outlined),
-                  ),
+                  GetBuilder<FavouriteControllerImp>(builder: (controller) {
+                    return IconButton(
+                      onPressed: () {
+                        if (controller.isFavourite[itemsModel.itemsId] == "1") {
+                          controller.setFavourite(itemsModel.itemsId, "0");
+                          controller.removeFavourite(itemsModel.itemsId!);
+                        } else {
+                          controller.setFavourite(itemsModel.itemsId, "1");
+                          controller.addFavourite(itemsModel.itemsId!);
+
+                        }
+                      },
+                      icon: Icon(
+                        controller.isFavourite[itemsModel.itemsId] == "1"
+                            ? Icons.favorite
+                            : Icons.favorite_border_outlined,
+                        color: AppColor.primaryColor,
+                      ),
+                    );
+                  }),
                 ],
               ),
             ],

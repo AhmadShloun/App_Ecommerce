@@ -1,4 +1,4 @@
-import 'package:ecommerce/controller/forgetpassword/forgetpassword_controller.dart';
+import 'package:ecommerce/controller/auth/forgetpassword/forgetpassword_controller.dart';
 import 'package:ecommerce/core/class/handlingdataview.dart';
 import 'package:ecommerce/core/constant/color.dart';
 import 'package:ecommerce/core/functions/validinput.dart';
