@@ -48,12 +48,17 @@ class LoginControllerImp extends LoginController {
       print("=================$response===============");
       if (StatusRequest.success == statusRequest) {
         if (response['status'] == "success") {
-          myServices.sharedPreferences.setString("id", response['data']['users_id']);
-          myServices.sharedPreferences.setString("username", response['data']['users_name']);
-          myServices.sharedPreferences.setString("email", response['data']['users_email']);
-          myServices.sharedPreferences.setString("phone", response['data']['users_phone']);
-          myServices.sharedPreferences.setString("step", "2");
-          Get.offNamed(AppRoute.homepage);
+          if(response['data']['users_approve'] == "1"){
+            myServices.sharedPreferences.setString("id", response['data']['users_id']);
+            myServices.sharedPreferences.setString("username", response['data']['users_name']);
+            myServices.sharedPreferences.setString("email", response['data']['users_email']);
+            myServices.sharedPreferences.setString("phone", response['data']['users_phone']);
+            myServices.sharedPreferences.setString("step", "2");
+            Get.offNamed(AppRoute.homepage);
+          }
+          else{
+            Get.toNamed(AppRoute.verfiyCodeSignUp,arguments: {'email':email.text});
+          }
         } else {
           Get.defaultDialog(title: "Warning", middleText: response['status']);
           statusRequest = StatusRequest.failure;

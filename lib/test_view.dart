@@ -1,28 +1,69 @@
-import 'package:ecommerce/mymediaquery.dart';
 import 'package:flutter/material.dart';
-class TestView extends StatelessWidget {
-  const TestView({Key? key}) : super(key: key);
+import 'dart:async';
+
+class DelayedButtonExample extends StatefulWidget {
+  @override
+  _DelayedButtonExampleState createState() => _DelayedButtonExampleState();
+}
+
+class _DelayedButtonExampleState extends State<DelayedButtonExample> {
+  bool _isButtonEnabled = true;
+  Timer? _buttonTimer;
+
+  void _disableButtonTemporarily() {
+    setState(() {
+      _isButtonEnabled = false;
+    });
+
+    // Enable the button after a certain delay (e.g., 5 seconds)
+    _buttonTimer = Timer(Duration(seconds: 5), () {
+      setState(() {
+        _isButtonEnabled = true;
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    _buttonTimer?.cancel(); // Cancel the timer to prevent memory leaks
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-    double screenWidth = MyMediaQuery.screenWidth(context);
-    double screenHeight = MyMediaQuery.screenHeight(context);
-    double blockSizeHorizontal = MyMediaQuery.blockSizeHorizontal(context, dividedBy: 2);
-    double blockSizeVertical = MyMediaQuery.blockSizeVertical(context, dividedBy: 2);
-
-    // Now you can use these values in your widget's layout or logic
-    return SizedBox(
-      width: screenWidth,
-      height: screenHeight,
-      child: Center(
-        child: Text(
-          'Screen Width: $screenWidth\nScreen Height: $screenHeight\n'
-              'Block Size Horizontal (divided by 2): $blockSizeHorizontal\n'
-              'Block Size Vertical (divided by 2): $blockSizeVertical',
-          style: TextStyle(fontSize: 10),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Delayed Button Example'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            TextButton(
+              onPressed: _isButtonEnabled
+                  ? () {
+                // Handle button press here
+                // You can only press the button when it's enabled
+              }
+                  : null, // Disable the button if it's not enabled
+              child: Text('Press Me'),
+            ),
+            SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                _disableButtonTemporarily();
+              },
+              child: Text('Disable Button Temporarily'),
+            ),
+          ],
         ),
       ),
     );
   }
 }
 
+void main() {
+  runApp(MaterialApp(
+    home: DelayedButtonExample(),
+  ));
+}

@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:ecommerce/core/class/statusrequest.dart';
 import 'package:ecommerce/core/constant/routes.dart';
 import 'package:ecommerce/core/functions/handlingdatacontroller.dart';
@@ -8,6 +10,10 @@ abstract class VerfiyCodeSignUpController extends GetxController {
   checkCode();
 
   goToSuccessSignUp(String verificationCode);
+
+  resendCode();
+
+  startCountdown();
 }
 
 class VerfiyCodeSignUpControllerImp extends VerfiyCodeSignUpController {
@@ -17,6 +23,27 @@ class VerfiyCodeSignUpControllerImp extends VerfiyCodeSignUpController {
   StatusRequest statusRequest = StatusRequest.none;
 
   List data = [];
+
+  late Timer timer;
+
+  int countdown = 30;
+  bool isButtonEnabled = true;
+
+
+  @override
+  void startCountdown() {
+    countdown = 30;
+    isButtonEnabled = false;
+    timer = Timer.periodic(const Duration(seconds: 1), (timer) {
+      if (countdown > 0) {
+        countdown--;
+      } else {
+        isButtonEnabled = true;
+        timer.cancel();
+      }
+      update();
+    });
+  }
 
   @override
   checkCode() {}
@@ -45,8 +72,21 @@ class VerfiyCodeSignUpControllerImp extends VerfiyCodeSignUpController {
   }
 
   @override
+  resendCode() {
+    verfiyCodeSignUpData.resendData(
+      email: email!,
+    );
+    startCountdown();
+  }
+
+  @override
   void onInit() {
     email = Get.arguments['email'];
     super.onInit();
+  }
+  @override
+  void dispose() {
+    timer.cancel();
+    super.dispose();
   }
 }

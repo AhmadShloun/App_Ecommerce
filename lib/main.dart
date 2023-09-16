@@ -37,6 +37,7 @@ class MyApp extends StatelessWidget {
       locale: controller.language,
       theme: controller.appTheme,
       initialBinding: InitialBinding(),
+      // home: DelayedButtonExample(),
       getPages: routes,
     );
   }

@@ -20,7 +20,6 @@ import 'package:get/get.dart';
 List<GetPage<dynamic>>? routes = [
   // Language
   GetPage(name: AppRoute.language, page: () => const Language(), middlewares: [MyMiddleware()]),
-  // GetPage(name:AppRoute.language , page: ()=> const ProductDetails()),
 
   // OnBoarding
   GetPage(name: AppRoute.onBoarding, page: () => const OnBoarding()),
@@ -41,4 +40,5 @@ List<GetPage<dynamic>>? routes = [
   GetPage(name: AppRoute.items, page: () => const Items()),
   GetPage(name: AppRoute.productDetails, page: () => const ProductDetails()),
   GetPage(name: AppRoute.myfavourite, page: () => const MyFavourite()),
+
 ];
