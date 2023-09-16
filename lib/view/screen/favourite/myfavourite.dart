@@ -5,7 +5,6 @@ import 'package:ecommerce/view/widget/custom_appbar_home.dart';
 import 'package:ecommerce/view/widget/home/custom_title_appbar_home.dart';
 import 'package:ecommerce/view/widget/home/custom_title_body_home.dart';
 import 'package:ecommerce/view/widget/main_body.dart';
-import 'package:ecommerce/view/widget/myfavourite/custom_list_favourite_item.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -54,13 +53,9 @@ class MyFavourite extends StatelessWidget {
                             itemCount: controller.data.length,
                             gridDelegate:
                             const SliverGridDelegateWithFixedCrossAxisCount(
-                                crossAxisCount: 2,
-                              childAspectRatio: 0.7,
-
-                            ),
+                                crossAxisCount: 2),
                             itemBuilder: (context, index) {
-                              return CustomListFavouriteItems(favouriteModel: controller.data[index]);
-                              // return Text(controller.data[index].itemsName!);
+                              return Text(controller.data[index].itemsName!);
                             },
                           ),
                         ),

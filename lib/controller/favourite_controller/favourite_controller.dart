@@ -1,7 +1,7 @@
 import 'package:ecommerce/core/class/statusrequest.dart';
 import 'package:ecommerce/core/functions/handlingdatacontroller.dart';
 import 'package:ecommerce/core/services/services.dart';
-import 'package:ecommerce/data/datasource/remote/favourite/favourite_data.dart';
+import 'package:ecommerce/data/datasource/remote/favourite_data.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
