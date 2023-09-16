@@ -1,12 +1,14 @@
 import 'package:ecommerce/core/class/statusrequest.dart';
 import 'package:ecommerce/core/functions/handlingdatacontroller.dart';
 import 'package:ecommerce/core/services/services.dart';
-import 'package:ecommerce/data/datasource/remote/myfavourite_data.dart';
+import 'package:ecommerce/data/datasource/remote/favourite/myfavourite_data.dart';
 import 'package:ecommerce/data/model/myfavouritemodel.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 abstract class MyFavouriteController extends GetxController {
   getData();
+  deleteFromFavourite(String favid);
 }
 
 class MyFavouriteControllerImp extends MyFavouriteController {
@@ -31,6 +33,16 @@ class MyFavouriteControllerImp extends MyFavouriteController {
         statusRequest = StatusRequest.failure;
       }
     }
+    update();
+  }
+
+
+  @override
+  deleteFromFavourite(favid)  {
+    // statusRequest = StatusRequest.loading;
+    var response =  favouriteData.deleteData(favid);
+    data.removeWhere((element) => element.favouriteId == favid);
+    Get.rawSnackbar(title: "اشعار" , messageText: const Text("تم حذف المنتج من المفضلة"));
     update();
   }
 
