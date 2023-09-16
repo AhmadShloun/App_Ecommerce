@@ -23,4 +23,6 @@ class AppImageAsset {
   static const String twitter = "$rootIcons/twitter.svg";
   static const String google = "$rootIcons/google-plus.svg";
 
+  static const String avatar = "$rootImages/avatar.png";
+
 }

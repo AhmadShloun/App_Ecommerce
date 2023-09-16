@@ -1,69 +1,49 @@
+import 'package:ecommerce/core/constant/color.dart';
+import 'package:ecommerce/core/constant/imageasset.dart';
 import 'package:flutter/material.dart';
-import 'dart:async';
+import 'package:get/get.dart';
 
-class DelayedButtonExample extends StatefulWidget {
-  @override
-  _DelayedButtonExampleState createState() => _DelayedButtonExampleState();
-}
-
-class _DelayedButtonExampleState extends State<DelayedButtonExample> {
-  bool _isButtonEnabled = true;
-  Timer? _buttonTimer;
-
-  void _disableButtonTemporarily() {
-    setState(() {
-      _isButtonEnabled = false;
-    });
-
-    // Enable the button after a certain delay (e.g., 5 seconds)
-    _buttonTimer = Timer(Duration(seconds: 5), () {
-      setState(() {
-        _isButtonEnabled = true;
-      });
-    });
-  }
-
-  @override
-  void dispose() {
-    _buttonTimer?.cancel(); // Cancel the timer to prevent memory leaks
-    super.dispose();
-  }
+class dd extends StatelessWidget {
+  const dd({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Delayed Button Example'),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            TextButton(
-              onPressed: _isButtonEnabled
-                  ? () {
-                // Handle button press here
-                // You can only press the button when it's enabled
-              }
-                  : null, // Disable the button if it's not enabled
-              child: Text('Press Me'),
-            ),
-            SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                _disableButtonTemporarily();
-              },
-              child: Text('Disable Button Temporarily'),
-            ),
-          ],
-        ),
+
+    return Container(
+      color: AppColor.white,
+      child: ListView(
+        children: [
+          Stack(
+            clipBehavior: Clip.none,
+            alignment: Alignment.center,
+            children: [
+              Container(
+                height: Get.width / 3,
+                color: AppColor.primaryColor,
+              ),
+              Positioned(
+                  top: Get.width / 3.9,
+                  child: Container(
+                      padding: EdgeInsets.all(4),
+                      decoration: BoxDecoration(
+                        color: AppColor.white,
+                        borderRadius: BorderRadius.circular(100),
+                      ),
+                      child: CircleAvatar(
+                        radius: 40,
+                        backgroundColor: Colors.grey[200],
+                        backgroundImage: AssetImage(AppImageAsset.avatar),
+                      ))),
+            ],
+          ),
+          const SizedBox(height: 100),
+          Card(
+            child: Column(children: [
+              ListTile(title: Text("asdasdasd"), tileColor: Colors.black),
+            ]),
+          ),
+        ],
       ),
     );
   }
-}
-
-void main() {
-  runApp(MaterialApp(
-    home: DelayedButtonExample(),
-  ));
 }

@@ -51,4 +51,5 @@ class MyFavouriteControllerImp extends MyFavouriteController {
     getData();
     super.onInit();
   }
+
 }

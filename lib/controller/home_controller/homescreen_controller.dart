@@ -1,4 +1,6 @@
+import 'package:ecommerce/view/screen/favourite/myfavourite.dart';
 import 'package:ecommerce/view/screen/home/home.dart';
+import 'package:ecommerce/view/screen/settings/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -8,18 +10,19 @@ abstract class HomeScreenController extends GetxController {
 
 class HomeScreenControllerImp extends HomeScreenController {
   int currentPage = 0;
-  List titleBottomAppBar = [
-    "home",
-    "settings",
-    "profile",
-    "favorite"
+  List bottomAppBar = [
+    {"title": "home", "icon": Icons.home},
+    {"title": "favourite", "icon": Icons.favorite},
+    {"title": "profile", "icon": Icons.person_pin_sharp},
+    {"title": "settings", "icon": Icons.settings}
   ];
   List<Widget> listPage = [
     const HomePage(),
+    // const MyFavourite(),
     Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: const [
-        Center(child: Text("Setting")),
+        Center(child: Text("Favourite")),
       ],
     ),
     Column(
@@ -28,18 +31,12 @@ class HomeScreenControllerImp extends HomeScreenController {
         Center(child: Text("Profile")),
       ],
     ),
-    Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: const [
-        Center(child: Text("Favorite")),
-      ],
-    ),
+    const Settings(),
   ];
 
   @override
   changePage(int index) {
     currentPage = index;
     update();
-
   }
 }
