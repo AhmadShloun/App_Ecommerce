@@ -45,6 +45,10 @@ class dd extends StatelessWidget {
             child: Column(children: [
               ListTile(title: Text("asdasdasd"), tileColor: Colors.black),
             ]),
+          ),Card(
+            child: Column(children: [
+              ListTile(title: Text("asdasdasd"), tileColor: Colors.black),
+            ]),
           ),
         ],
       ),

@@ -28,6 +28,7 @@ class FavouriteControllerImp extends FavouriteController {
 
   @override
   addFavourite(itemsid) async {
+    // data.clear();
     statusRequest = StatusRequest.loading;
     var response = await favouriteData.addFavourite(myServices.sharedPreferences.getString("id")!, itemsid);
     statusRequest = handlingData(response);

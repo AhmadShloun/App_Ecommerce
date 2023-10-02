@@ -8,6 +8,7 @@ import 'package:ecommerce/view/screen/auth/forgetpassword/success_resetpassword.
 import 'package:ecommerce/view/screen/auth/success_signup.dart';
 import 'package:ecommerce/view/screen/auth/forgetpassword/verfiycodeforgetpassword.dart';
 import 'package:ecommerce/view/screen/auth/verfiycodesignup.dart';
+import 'package:ecommerce/view/screen/cart/cart.dart';
 import 'package:ecommerce/view/screen/favourite/myfavourite.dart';
 import 'package:ecommerce/view/screen/home/homescreen.dart';
 import 'package:ecommerce/view/screen/items/items.dart';
@@ -20,6 +21,7 @@ import 'package:get/get.dart';
 List<GetPage<dynamic>>? routes = [
   // Language
   GetPage(name: AppRoute.language, page: () => const Language(), middlewares: [MyMiddleware()]),
+  // GetPage(name: AppRoute.language, page: () => const CartScreen(),),
 
   // OnBoarding
   GetPage(name: AppRoute.onBoarding, page: () => const OnBoarding()),
@@ -40,5 +42,6 @@ List<GetPage<dynamic>>? routes = [
   GetPage(name: AppRoute.items, page: () => const Items()),
   GetPage(name: AppRoute.productDetails, page: () => const ProductDetails()),
   GetPage(name: AppRoute.myfavourite, page: () => const MyFavourite()),
+  GetPage(name: AppRoute.cart, page: () => const CartScreen()),
 
 ];

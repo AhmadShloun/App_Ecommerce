@@ -1,3 +1,4 @@
+import 'package:ecommerce/controller/cart_controller/cart_controller.dart';
 import 'package:ecommerce/data/model/ItemsModel.dart';
 import 'package:get/get.dart';
 
@@ -6,6 +7,9 @@ abstract class ProductDetailsController extends GetxController {
 }
 
 class ProductDetailsControllerImp extends ProductDetailsController {
+
+  CartControllerImp cartController = Get.put(CartControllerImp());
+
   late ItemsModel itemsModel;
 
   List subItems = [
