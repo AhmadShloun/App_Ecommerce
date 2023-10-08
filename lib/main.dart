@@ -5,12 +5,6 @@ import 'package:ecommerce/core/localization/changelocal.dart';
 import 'package:ecommerce/core/localization/translation.dart';
 import 'package:ecommerce/core/services/services.dart';
 import 'package:ecommerce/routes.dart';
-import 'package:ecommerce/test_view.dart';
-import 'package:ecommerce/view/screen/auth/forgetpassword/success_resetpassword.dart';
-import 'package:ecommerce/view/screen/auth/forgetpassword/verfiycodeforgetpassword.dart';
-import 'package:ecommerce/view/screen/auth/login.dart';
-import 'package:ecommerce/view/screen/auth/success_signup.dart';
-import 'package:ecommerce/view/screen/language/language.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
