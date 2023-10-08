@@ -8,13 +8,13 @@ import 'package:ecommerce/view/screen/auth/forgetpassword/success_resetpassword.
 import 'package:ecommerce/view/screen/auth/success_signup.dart';
 import 'package:ecommerce/view/screen/auth/forgetpassword/verfiycodeforgetpassword.dart';
 import 'package:ecommerce/view/screen/auth/verfiycodesignup.dart';
-import 'package:ecommerce/view/screen/cart/cart.dart';
-import 'package:ecommerce/view/screen/favourite/myfavourite.dart';
+import 'package:ecommerce/view/screen/cart.dart';
+import 'package:ecommerce/view/screen/myfavourite.dart';
 import 'package:ecommerce/view/screen/home/homescreen.dart';
-import 'package:ecommerce/view/screen/items/items.dart';
-import 'package:ecommerce/view/screen/language/language.dart';
-import 'package:ecommerce/view/screen/onboarding/onboarding.dart';
-import 'package:ecommerce/view/screen/product/product_details.dart';
+import 'package:ecommerce/view/screen/items.dart';
+import 'package:ecommerce/view/screen/language.dart';
+import 'package:ecommerce/view/screen/onboarding.dart';
+import 'package:ecommerce/view/screen/product_details.dart';
 import 'package:ecommerce/view/screen/welcome_back.dart';
 import 'package:get/get.dart';
 

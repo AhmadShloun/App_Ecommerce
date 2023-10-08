@@ -1,5 +1,5 @@
 import 'package:ecommerce/controller/favourite_controller/favourite_controller.dart';
-import 'package:ecommerce/controller/items_controller/items_controller.dart';
+import 'package:ecommerce/controller/items_controller.dart';
 import 'package:ecommerce/core/class/handlingdataview.dart';
 import 'package:ecommerce/core/constant/color.dart';
 import 'package:ecommerce/data/model/ItemsModel.dart';

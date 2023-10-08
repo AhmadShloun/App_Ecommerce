@@ -1,4 +1,4 @@
-import 'package:ecommerce/controller/cart_controller/cart_controller.dart';
+import 'package:ecommerce/controller/cart_controller.dart';
 import 'package:ecommerce/data/model/ItemsModel.dart';
 import 'package:get/get.dart';
 

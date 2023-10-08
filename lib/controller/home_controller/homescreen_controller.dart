@@ -1,6 +1,6 @@
-import 'package:ecommerce/view/screen/favourite/myfavourite.dart';
+import 'package:ecommerce/view/screen/myfavourite.dart';
 import 'package:ecommerce/view/screen/home/home.dart';
-import 'package:ecommerce/view/screen/settings/settings.dart';
+import 'package:ecommerce/view/screen/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

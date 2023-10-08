@@ -1,4 +1,4 @@
-import 'package:ecommerce/controller/settings_controller/settings_controller.dart';
+import 'package:ecommerce/controller/settings_controller.dart';
 import 'package:ecommerce/core/constant/color.dart';
 import 'package:ecommerce/core/constant/imageasset.dart';
 import 'package:ecommerce/view/widget/home/custom_title_body_home.dart';
